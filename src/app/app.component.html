@@ -26,10 +26,14 @@
     </p>
   </div>
   <div id="home">
-    <!--app-article est multiplié-->
+    <app-article *ngFor="let element of liste" [titreArticle]="element.titreArticle" [prixArticle]="element.prixArticle"
+      [description]="element.description" [urlImg]="element.urlImg" [textAltImg]="element.textAltImg"
+      [available]="element.available" (info)="onAffiche($event)"></app-article>
+    <!--app-article est multiplié
     <app-article [titreArticle]="'vélo'" [prixArticle]="prix1" (info)="onAffiche($event)"></app-article>
     <app-article [titreArticle]="'TV'" [prixArticle]="prix2" (info)="onAffiche($event)"></app-article>
     <app-article [titreArticle]="'table'" [prixArticle]="prix3" (info)="onAffiche($event)"></app-article>
+      -->
   </div>
 </div>
 

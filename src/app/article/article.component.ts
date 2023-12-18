@@ -8,15 +8,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ArticleComponent implements OnInit {
   //titreArticle: string = "Titre de l'article";
   //prixArticle: number = 12;
-  textAltImg: string = "Titre alternatif de l'image";
-  urlImg: string = 'https://via.placeholder.com/400x250';
+  //urlImg: string = 'https://via.placeholder.com/400x250';
+  //textAltImg: string = "Titre alternatif de l'image";
+  //available: boolean = false;
+
   totalNbrLike: number = 0;
   comment: string = 'Ceci est un commentaire';
-  available: boolean = false;
+  @Output() info = new EventEmitter<string>();
 
   @Input() titreArticle: string;
   @Input() prixArticle: number;
-  @Output() info = new EventEmitter<string>();
+  @Input() description: string;
+  @Input() urlImg: string;
+  @Input() textAltImg: string;
+  @Input() available: boolean;
 
   constructor() {}
 
