@@ -1,7 +1,9 @@
 <div class="card articleInfo">
   <img [src]="urlImg" [alt]="textAltImg"> <!-- expressions TS -->
   <div class="card-body">
-    <h5 class="card-title"> {{titreArticle}} </h5>
+    <h5 class="card-title"> {{titreArticle}}
+      <span *ngIf="available===false">- Indisponible</span>
+    </h5>
     <!-- Le texte sera une donné stockée dans une variable du ts du component -->
     <h6 class="card-title">{{ prixArticle }} €</h6>
     <p class="card-text">Description</p>
