@@ -8,5 +8,11 @@
 
     <button class="btn btn-primary" (click)="onLike()">J'aime</button>
     <p>Nombre de like : {{totalNbrLike}}</p>
+
+    <!-- ngModel assure la liaison bidirectionnelle car la
+    variable comment insérée dans l'input sera envoyée vers
+    le TS puis reportée dans le HTML -->
+    <input type="text" placeholder="Écris ton commentaire" [(ngModel)]="comment">
+    <p>COMMENTAIRE : {{comment}}</p>
   </div>
 </div>

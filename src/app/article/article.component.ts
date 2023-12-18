@@ -11,6 +11,7 @@ export class ArticleComponent implements OnInit {
   textAltImg: string = "Titre alternatif de l'image";
   urlImg: string = 'https://via.placeholder.com/400x250';
   totalNbrLike: number = 0;
+  comment: string = 'Ceci est un commentaire';
 
   constructor() {}
 
