@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-article',
@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.css'],
 })
 export class ArticleComponent implements OnInit {
-  titreArticle: string = "Titre de l'article";
-  prixArticle: number = 12;
+  //titreArticle: string = "Titre de l'article";
+  //prixArticle: number = 12;
   textAltImg: string = "Titre alternatif de l'image";
   urlImg: string = 'https://via.placeholder.com/400x250';
   totalNbrLike: number = 0;
   comment: string = 'Ceci est un commentaire';
+
+  @Input() titreArticle: string;
+  @Input() prixArticle: number;
+  @Output() info = new EventEmitter<string>();
 
   constructor() {}
 
@@ -21,5 +25,6 @@ export class ArticleComponent implements OnInit {
   onLike() {
     //this permet de manipuler des variables dans une classe
     this.totalNbrLike++;
+    this.info.emit(this.titreArticle);
   }
 }

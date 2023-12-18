@@ -19,11 +19,18 @@
 
 <!-- Contenu -->
 
-<div class="container" id="home">
-  <!--app-article est multiplié-->
-  <app-article></app-article>
-  <app-article></app-article>
-  <app-article></app-article>
+<div class="container">
+  <div id="alertMsg">
+    <p>
+      {{message}}
+    </p>
+  </div>
+  <div id="home">
+    <!--app-article est multiplié-->
+    <app-article [titreArticle]="'vélo'" [prixArticle]="prix1" (info)="onAffiche($event)"></app-article>
+    <app-article [titreArticle]="'TV'" [prixArticle]="prix2" (info)="onAffiche($event)"></app-article>
+    <app-article [titreArticle]="'table'" [prixArticle]="prix3" (info)="onAffiche($event)"></app-article>
+  </div>
 </div>
 
 <!--Pied de page-->
