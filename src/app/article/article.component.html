@@ -1,10 +1,12 @@
 <div class="card articleInfo">
-  <img src="" alt="">
+  <img [src]="urlImg" [alt]="textAltImg"> <!-- expressions TS -->
   <div class="card-body">
     <h5 class="card-title"> {{titreArticle}} </h5>
-    <!--Le texte sera une donné stockée dans une variable du ts du component-->
+    <!-- Le texte sera une donné stockée dans une variable du ts du component -->
     <h6 class="card-title">{{ prixArticle }} €</h6>
     <p class="card-text">Description</p>
-    <button class="btn btn-primary">J'aime</button>
+
+    <button class="btn btn-primary" (click)="onLike()">J'aime</button>
+    <p>Nombre de like : {{totalNbrLike}}</p>
   </div>
 </div>
