@@ -5,6 +5,7 @@ import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   { path: '', component: ListeComponent },
+  { path: 'liste', redirectTo: '' },
   { path: 'details/:id', component: DetailsComponent },
 ];
 
