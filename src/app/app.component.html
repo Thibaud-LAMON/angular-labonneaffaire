@@ -17,25 +17,7 @@
   </div>
 </nav>
 
-<!-- Contenu -->
-
-<div class="container">
-  <div id="alertMsg">
-    <p>
-      {{message}}
-    </p>
-  </div>
-  <div id="home">
-    <app-article *ngFor="let element of liste" [titreArticle]="element.titreArticle" [prixArticle]="element.prixArticle"
-      [description]="element.description" [urlImg]="element.urlImg" [textAltImg]="element.textAltImg"
-      [available]="element.available" (info)="onAffiche($event)"></app-article>
-    <!--app-article est multiplié
-    <app-article [titreArticle]="'vélo'" [prixArticle]="prix1" (info)="onAffiche($event)"></app-article>
-    <app-article [titreArticle]="'TV'" [prixArticle]="prix2" (info)="onAffiche($event)"></app-article>
-    <app-article [titreArticle]="'table'" [prixArticle]="prix3" (info)="onAffiche($event)"></app-article>
-      -->
-  </div>
-</div>
+<router-outlet></router-outlet>
 
 <!--Pied de page-->
 <footer class="py-5 bg-dark">
