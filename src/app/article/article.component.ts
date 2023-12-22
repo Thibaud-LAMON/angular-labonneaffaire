@@ -33,4 +33,12 @@ export class ArticleComponent implements OnInit {
     this.totalNbrLike++;
     this.info.emit(this.titreArticle);
   }
+
+  getColor() {
+    if (this.available === true) {
+      return 'green';
+    } else {
+      return 'red';
+    }
+  }
 }
