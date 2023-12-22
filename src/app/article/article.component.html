@@ -8,7 +8,15 @@
     <h6 class="card-title">{{ prixArticle }} €</h6>
     <p class="card-text">{{description}}</p>
 
-    <button class="btn btn-primary" (click)="onLike()">J'aime</button>
+    <!-- <button class="btn btn-primary" (click)="onLike()">J'aime</button> -->
+    <button (click)="onLike()" [ngClass]="{
+        'show' : jaime === true,
+        'hidden' : jaime === false
+      }">J'aime</button>
+    <button class="nolike" (click)="onLike()" [ngClass]="{
+        'show' : jaime === false,
+        'hidden' : jaime === true
+      }">Je n'aime pas</button>
     <p>Nombre de like : {{totalNbrLike}}</p>
 
     <!-- ngModel assure la liaison bidirectionnelle car la
