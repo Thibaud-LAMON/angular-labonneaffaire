@@ -8,7 +8,7 @@
     <!-- Le texte sera une donné stockée dans une variable du ts du component -->
     <h6 class="card-title">{{ prixArticle }} €</h6>
     <p class="card-text">{{description}}</p>
-    <a routerLink="/details"> => Voir l'article</a>
+    <a routerLink="/details/{{idArticle}}"> => Voir l'article</a>
     <hr>
     <!-- <button class="btn btn-primary" (click)="onLike()">J'aime</button> -->
     <button (click)="onLike()" [ngClass]="{

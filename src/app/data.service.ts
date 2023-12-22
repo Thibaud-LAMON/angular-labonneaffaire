@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
   listeArticles = [
     {
+      id: 1,
       titreArticle: 'Vélo',
       prixArticle: 80,
       description: 'Un super vélo tout terrain',
@@ -14,6 +15,7 @@ export class DataService {
       available: false,
     },
     {
+      id: 2,
       titreArticle: 'TV',
       prixArticle: 230,
       description: "Très bonne qualité d'écran",
@@ -22,6 +24,7 @@ export class DataService {
       available: true,
     },
     {
+      id: 3,
       titreArticle: 'Jouet',
       prixArticle: 14,
       description: 'Neuf, jamais utilisé',
