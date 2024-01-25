@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,16 @@ import { interval } from 'rxjs';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  secondes: number = 0;
+  secondes;
   constructor() {}
 
   ngOnInit(): void {
-    const compteur = interval(1000); //initialisation d'intervale
+    const compteur = interval(1000).pipe(
+      filter((value) => value % 2 === 0),
+      map((value) =>
+        value % 2 === 0 ? `${value} est pair` : `${value} est impair`
+      )
+    ); //initialisation d'intervale
 
     //écoute d'intervale
     compteur.subscribe({
