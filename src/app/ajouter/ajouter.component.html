@@ -8,10 +8,26 @@ Pour récupérer les info du form on utilise ngForm
   <!--Le formulaire template-driven étant lié à la directice ngModel
   il faut lier les variables aux champs du form-->
   <label>Titre</label>
-  <input type="text" name="title" [(ngModel)]="titleToAdd" required>
+  <input type="text" name="title" [(ngModel)]="titleToAdd" required minlength="4" #title="ngModel">
+  <div *ngIf="title.invalid && (title.dirty || title.touched)">
+    <!--Le titre doit être invalid ET doit avoir une valeur ou qu'un élément de form control est flouté-->
+    <div *ngIf="title.errors?.['required']">
+      <!--S'affiche si le titre est vide-->
+      Titre obligatoire
+    </div>
+    <div *ngIf="title.errors?.['minlength']">
+      <!--S'affiche si le titre fait moins de 4 caractères-->
+      Le titre doit contenir au moins 4 caractères
+    </div>
+  </div>
   <br>
   <label>Prix</label>
-  <input type="number" name="price" [(ngModel)]="priceToAdd" required>
+  <input type="number" name="price" [(ngModel)]="priceToAdd" required #price="ngModel">
+  <div *ngIf="price.invalid && (price.dirty || price.touched)">
+    <div *ngIf="price.errors?.['required']">
+      Prix obligatoire
+    </div>
+  </div>
   <br>
-  <button class="btn btn-primary" type="submit">Envoyer</button>
+  <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Envoyer</button>
 </form>
