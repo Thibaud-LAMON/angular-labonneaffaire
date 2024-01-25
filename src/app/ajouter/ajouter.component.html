@@ -4,19 +4,20 @@
 elle fera appelle à la méthode onSubmit()
 Pour récupérer les info du form on utilise ngForm
 -->
+<!--
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
   <!--Le formulaire template-driven étant lié à la directice ngModel
-  il faut lier les variables aux champs du form-->
+  il faut lier les variables aux champs du form->
   <label>Titre</label>
   <input type="text" name="title" [(ngModel)]="titleToAdd" required minlength="4" #title="ngModel">
   <div *ngIf="title.invalid && (title.dirty || title.touched)">
-    <!--Le titre doit être invalid ET doit avoir une valeur ou qu'un élément de form control est flouté-->
+    <!--Le titre doit être invalid ET doit avoir une valeur ou qu'un élément de form control est flouté->
     <div *ngIf="title.errors?.['required']">
-      <!--S'affiche si le titre est vide-->
+      <!--S'affiche si le titre est vide->
       Titre obligatoire
     </div>
     <div *ngIf="title.errors?.['minlength']">
-      <!--S'affiche si le titre fait moins de 4 caractères-->
+      <!--S'affiche si le titre fait moins de 4 caractères->
       Le titre doit contenir au moins 4 caractères
     </div>
   </div>
@@ -30,4 +31,14 @@ Pour récupérer les info du form on utilise ngForm
   </div>
   <br>
   <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Envoyer</button>
+</form>
+-->
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <label>Titre</label>
+  <input type="text" [formControl]="titleToAdd">
+  <br>
+  <label>Prix</label>
+  <input type="number" [formControl]="priceToAdd">
+  <br>
+  <button class="btn btn-primary" type="submit">Envoyer</button>
 </form>
