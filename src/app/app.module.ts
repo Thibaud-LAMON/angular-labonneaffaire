@@ -9,9 +9,10 @@ import { DataService } from './data.service';
 import { ListeComponent } from './liste/liste.component';
 import { DetailsComponent } from './details/details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AjouterComponent } from './ajouter/ajouter.component';
 
 @NgModule({
-  declarations: [AppComponent, ArticleComponent, ListeComponent, DetailsComponent, PageNotFoundComponent],
+  declarations: [AppComponent, ArticleComponent, ListeComponent, DetailsComponent, PageNotFoundComponent, AjouterComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [DataService],
   bootstrap: [AppComponent],

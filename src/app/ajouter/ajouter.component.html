@@ -1,0 +1,17 @@
+<h1>Ajouter un nouvel article</h1>
+
+<!--La méthode ngSubmit permet de rendre le formulaire ngSubmit actif
+elle fera appelle à la méthode onSubmit()
+Pour récupérer les info du form on utilise ngForm
+-->
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <!--Le formulaire template-driven étant lié à la directice ngModel
+  il faut lier les variables aux champs du form-->
+  <label>Titre</label>
+  <input type="text" name="title" [(ngModel)]="titleToAdd" required>
+  <br>
+  <label>Prix</label>
+  <input type="number" name="price" [(ngModel)]="priceToAdd" required>
+  <br>
+  <button class="btn btn-primary" type="submit">Envoyer</button>
+</form>
