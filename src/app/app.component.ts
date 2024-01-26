@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 @Component({
@@ -7,8 +7,9 @@ import { map, filter } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   secondes;
+  computerSubscription: Subscription;
   constructor() {}
 
   ngOnInit(): void {
@@ -20,10 +21,16 @@ export class AppComponent implements OnInit {
     ); //initialisation d'intervale
 
     //écoute d'intervale
-    compteur.subscribe({
+    //l'observable est stocké dans une variable
+    this.computerSubscription = compteur.subscribe({
       next: (v) => (this.secondes = v), //propriété d'objet donc entre accolade
       error: (e) => console.error(e),
       complete: () => console.info('complete'),
     });
+  }
+
+  ngOnDestroy() {
+    this.computerSubscription.unsubscribe();
+    //La subscription à lieu lors de la destruction du composant
   }
 }
